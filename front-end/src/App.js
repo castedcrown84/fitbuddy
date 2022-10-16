@@ -8,7 +8,7 @@ function App() {
       <Router>
         
         <Navbar/>
-      
+      <div className="pages">
       <Routes>
       
       <Route path='/'
@@ -18,7 +18,7 @@ function App() {
 
 
       </Routes>
-    
+      </div>
       </Router>
     </div>
   );
