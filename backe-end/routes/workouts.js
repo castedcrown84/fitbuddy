@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const Workouts = require('../models/Workouts');
 const {createWorkout, getWorkouts, getWorkout, deleteWorkout, updateWorkout} = require('../controllers/workoutController')
 
 
