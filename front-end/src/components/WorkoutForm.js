@@ -1,17 +1,17 @@
 import { useState } from "react"
 
 const WorkoutForm = () => {
-    const [title, setTile] = useState("")
+    const [title, setTitle] = useState("")
     const [load, setLoad] = useState("")
     const [reps, setReps] = useState("")
     const [error, setError] = useState(null)
 
 const HandleSubmit = async (e) => {
 
-    e.preventDefaul();
+    e.preventDefault();
 
     const workout = {title, load, reps}
-
+    //fetches post request
     const response = await fetch('/api/workout/', {
         method : "POST",
         body: JSON.stringify(workout),
@@ -19,23 +19,28 @@ const HandleSubmit = async (e) => {
             "Content-Type" : "application/json"
         }
     })
-    const data = await response.json();
+    const json = await response.json();
 
     if(!response.ok){
-        setError(data.error)
+        setError(json.error)
     }
     if(response.ok){
         setError(null)
-        console.log("WorkOut Added")
+        setTitle('')
+        setReps('')
+        setLoad('')
+        console.log('new workout added:', json)
+
     }
 }
  
-    return ( <form onSubmit={HandleSubmit}>
-    <label>Title</label>
+    return( 
+    <form onSubmit={HandleSubmit}>
+    <label>Exercise Title</label>
     <input 
     type="text" 
     value={title}
-    onChange={(e) => setTile(e.target.value)} 
+    onChange={(e) => setTitle(e.target.value)} 
     />
 
     <label>Load</label>
@@ -52,7 +57,7 @@ const HandleSubmit = async (e) => {
     
     />
 
-
+        <button>Add Workout</button>
     </form> );
 }
  

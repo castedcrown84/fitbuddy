@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import WorkoutDetails from "../components/WorkoutDetails";
+import WorkoutForm from "../components/WorkoutForm";
 
 
 const Home = () => {
@@ -24,7 +25,8 @@ const Home = () => {
     }, [])
 
 
-    return ( <div className="home">
+    return ( 
+    <div className="home">
         <div className="workouts">
             {
                 workOuts && workOuts.map((workout) => (
@@ -32,7 +34,12 @@ const Home = () => {
                 ))
             }
         </div>
-    </div> );
+
+        <WorkoutForm/>
+        
+    </div> 
+    );
+    
 }
  
 export default Home;
