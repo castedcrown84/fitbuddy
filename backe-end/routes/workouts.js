@@ -10,7 +10,7 @@ router.get("/:id", getWorkout)
 
 router.post('/', createWorkout)
   
-router.delete('/:', deleteWorkout)
+router.delete('/:id', deleteWorkout)
 
 
 router.patch("/:", updateWorkout)
