@@ -6,6 +6,7 @@ const workoutRoutes = require('./routes/workouts')
 
 // express app
 const app = express()
+const path = require("path")
 
 
 // middleware
@@ -18,6 +19,12 @@ app.use((req, res, next) => {
 
 // routes
 app.use('/api/workouts', workoutRoutes)
+
+app.use(express.static(path.resolve(__dirname, "./client/build")));
+
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+});
 
 // connect to db
 mongoose.connect(process.env.MONGO_URI)
