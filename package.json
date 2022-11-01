@@ -4,7 +4,13 @@
   "description": "",
   "main": "backe-end/server",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backe-end/server.js",
+    "develop": "concurrently \"cd backe-end && npm run watch\" \"cd front-end && npm start\"",
+    "install": "cd backe-end && npm i && cd ../front-end && npm i",
+    "seed": "cd backe-end && npm run seed",
+    "build": "cd front-end && npm run build"
+    
   },
   "repository": {
     "type": "git",
@@ -16,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/castedcrown84/fitbuddy/issues"
   },
-  "homepage": "https://github.com/castedcrown84/fitbuddy#readme"
+  "homepage": "https://github.com/castedcrown84/fitbuddy#readme",
+  "dependencies": {
+    "concurrently": "^7.5.0"  
+  }
 }
