@@ -13,6 +13,6 @@ router.post('/', createWorkout)
 router.delete('/:id', deleteWorkout)
 
 
-router.patch("/:", updateWorkout)
+router.patch("/:id", updateWorkout)
 
 module.exports = router;
