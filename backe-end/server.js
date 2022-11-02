@@ -8,6 +8,8 @@ const workoutRoutes = require('./routes/workouts')
 const app = express()
 const path = require("path")
 
+const PORT = process.env.PORT || 3001
+
 
 // middleware
 app.use(express.json())
@@ -31,8 +33,8 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log('connected to database')
     // listen to port
-    app.listen(process.env.PORT, () => {
-      console.log('listening for requests on port', process.env.PORT)
+    app.listen(PORT, () => {
+      console.log('listening for requests on port' + PORT)
     })
   })
   .catch((err) => {
