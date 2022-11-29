@@ -9,7 +9,8 @@
     "develop": "concurrently \"cd backe-end && npm run watch\" \"cd front-end && npm start\"",
     "install": "cd backe-end && npm i && cd ../front-end && npm i",
     "seed": "cd backe-end && npm run seed",
-    "build": "cd front-end && npm run build"
+    "build": "cd front-end && npm run build",
+    "heroku-postbuild": "npm run install-client && npm run build"
     
   },
   "repository": {
